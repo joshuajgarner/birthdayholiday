@@ -9,60 +9,76 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#04121F; --sea:#2FBFA6; --amber:#FFB627; --rose:#F2A0B4; --pale:#EAF2F0; --mute:#7E97A6;
-    --rule:rgba(234,242,240,.14);
+    --ink:#1E1022;
+    --plum:#2E1733;
+    --rose:#F0A3B5;
+    --gold:#E9C46A;
+    --pale:#F7EEE8;
+    --mute:#B99BA9;
+    --rule:rgba(247,238,232,.14);
     --display:"Instrument Serif",Georgia,serif;
     --mono:"IBM Plex Mono",ui-monospace,monospace;
     --body:"Manrope",system-ui,sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:radial-gradient(1200px 700px at 50% -10%,#103449 0%,transparent 60%),var(--ink);
-    color:var(--pale);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{
+    background:
+      radial-gradient(1100px 650px at 50% -8%, #4A2141 0%, transparent 60%),
+      radial-gradient(900px 500px at 90% 110%, #3A1530 0%, transparent 55%),
+      var(--ink);
+    color:var(--pale);font-family:var(--body);line-height:1.6;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
   .wrap{max-width:940px;margin:0 auto;padding:0 22px}
-  .eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--sea)}
+  .eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--rose)}
   .muted{color:var(--mute)}
 
+  /* GATE */
   #gate{min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 22px}
   #gate.gone{display:none}
   .seal-card{max-width:560px}
   .seal-card h1{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,7vw,4rem);line-height:1.05;margin:18px 0 14px}
-  .seal-card h1 em{font-style:italic;color:var(--amber)}
+  .seal-card h1 em{font-style:italic;color:var(--gold)}
   .seal-card p{color:var(--mute);font-size:1.02rem;max-width:42ch;margin:0 auto}
-  .wax{width:132px;height:132px;margin:36px auto 26px;border-radius:50%;border:none;cursor:pointer;position:relative;
-    background:radial-gradient(circle at 35% 30%,#FFCF6B,#E2892B 55%,#A85C12 100%);
-    box-shadow:0 0 0 1px rgba(255,214,120,.5),0 18px 50px rgba(255,182,39,.22);
+  .wax{
+    width:132px;height:132px;margin:36px auto 26px;border-radius:50%;border:none;cursor:pointer;position:relative;
+    background:radial-gradient(circle at 35% 30%,#E96A8B,#B4304F 55%,#6E1229 100%);
+    box-shadow:0 0 0 1px rgba(240,163,181,.45),0 18px 55px rgba(233,106,139,.28);
     display:grid;place-items:center;font-family:var(--mono);font-size:.62rem;letter-spacing:.22em;
-    color:#3A1F05;text-transform:uppercase;font-weight:600;transition:transform .25s ease}
-  .wax::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:1px solid rgba(255,182,39,.35);animation:pulse 2.6s ease-out infinite}
+    color:#FBE3E9;text-transform:uppercase;font-weight:600;transition:transform .25s ease;
+  }
+  .wax::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:1px solid rgba(240,163,181,.4);animation:pulse 2.6s ease-out infinite}
   @keyframes pulse{0%{transform:scale(.96);opacity:.9}100%{transform:scale(1.25);opacity:0}}
   .wax:hover,.wax:focus-visible{transform:scale(1.05)}
   .wax:active{transform:scale(.94)}
   .countdown{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;color:var(--mute);margin-top:30px}
   .countdown b{color:var(--pale);font-weight:500}
 
+  /* MAIN */
   #reveal{display:none;padding:70px 0 120px}
   #reveal.on{display:block;animation:fade .9s ease both}
   @keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
   .masthead{text-align:center;margin-bottom:16px}
   .masthead h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,5.2vw,3.2rem);line-height:1.08;margin:12px 0 10px}
-  .masthead h2 em{font-style:italic;color:var(--amber)}
+  .masthead h2 em{font-style:italic;color:var(--gold)}
   .masthead p{color:var(--mute);max-width:52ch;margin:0 auto}
 
-  .progress{position:sticky;top:0;z-index:40;margin:34px 0 46px;background:rgba(4,18,31,.88);backdrop-filter:blur(10px);
+  .progress{position:sticky;top:0;z-index:40;margin:34px 0 46px;background:rgba(30,16,34,.88);backdrop-filter:blur(10px);
     border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:11px 0}
   .progress .inner{display:flex;justify-content:space-between;align-items:center;gap:14px;
     font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase}
   .bar{flex:1;height:2px;background:var(--rule);position:relative;overflow:hidden}
-  .bar i{position:absolute;inset:0;width:0;background:var(--sea);transition:width .6s cubic-bezier(.2,.8,.2,1)}
+  .bar i{position:absolute;inset:0;width:0;background:var(--rose);transition:width .6s cubic-bezier(.2,.8,.2,1)}
 
-  .stop{border:1px solid var(--rule);background:linear-gradient(180deg,rgba(18,48,73,.5),rgba(10,36,56,.32));
+  /* STOPS */
+  .stop{border:1px solid var(--rule);background:linear-gradient(180deg,rgba(74,33,65,.42),rgba(46,23,51,.3));
     margin-bottom:20px;position:relative;overflow:hidden}
   .stop.locked{cursor:pointer}
-  .stop.locked:hover{border-color:rgba(255,182,39,.45)}
-  .stop.locked:hover .tap{color:var(--amber)}
+  .stop.locked:hover{border-color:rgba(240,163,181,.5)}
+  .stop.locked:hover .tap{color:var(--rose)}
   .stub{display:flex;align-items:center;gap:18px;padding:22px 24px}
-  .daynum{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;color:var(--sea);border:1px solid var(--rule);padding:8px 10px;white-space:nowrap}
+  .daynum{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;color:var(--rose);border:1px solid var(--rule);padding:8px 10px;white-space:nowrap}
   .stub-mid{flex:1;min-width:0}
   .stub-mid .k{font-family:var(--display);font-size:clamp(1.3rem,3.4vw,1.8rem)}
   .stub-mid .s{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;color:var(--mute);text-transform:uppercase}
@@ -70,65 +86,80 @@
   .body{display:none;padding:0 24px 28px;border-top:1px dashed var(--rule)}
   .stop.open .body{display:block;animation:fade .6s ease both}
   .stop.open .tap{display:none}
-  .body p{color:#C4D4D8;margin-top:16px;max-width:66ch}
+  .body p{color:#E3D2D8;margin-top:16px;max-width:66ch}
   .stop::before,.stop::after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:var(--ink);border:1px solid var(--rule)}
   .stop::before{left:-9px;top:50%;transform:translateY(-50%)}
   .stop::after{right:-9px;top:50%;transform:translateY(-50%)}
 
+  /* BOARDING PASS */
   .pass{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;border:1px solid var(--rule);
-    padding:22px;margin-top:20px;background:rgba(4,18,31,.5)}
+    padding:22px;margin-top:20px;background:rgba(30,16,34,.55)}
   .pass .code{font-family:var(--display);font-size:clamp(2rem,6vw,3rem);line-height:1}
   .pass .city{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;color:var(--mute);text-transform:uppercase;margin-top:4px}
-  .pass .time{font-family:var(--mono);font-size:.8rem;color:var(--sea);margin-top:8px}
-  .pass .mid{text-align:center;color:var(--amber);font-size:1.3rem}
+  .pass .time{font-family:var(--mono);font-size:.8rem;color:var(--rose);margin-top:8px}
+  .pass .mid{text-align:center;color:var(--gold);font-size:1.3rem}
   .pass .r{text-align:right}
 
+  /* GALLERY */
   .gallery{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;margin-top:20px}
-  .gallery figure{overflow:hidden;position:relative;min-height:120px;background:#0B2033}
+  .gallery figure{overflow:hidden;position:relative;min-height:120px;background:#2A1530}
   .gallery figure:first-child{grid-row:span 2;min-height:260px}
-  .gallery img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92);transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+  .gallery img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.95);transition:transform .8s cubic-bezier(.2,.8,.2,1)}
   .gallery figure:hover img{transform:scale(1.05)}
 
-  .ship-hero{margin-top:22px;padding:26px;border:1px solid rgba(255,182,39,.28);
-    background:linear-gradient(160deg,rgba(255,182,39,.08),rgba(47,191,166,.06))}
+  /* SHIP */
+  .ship-hero{margin-top:22px;padding:26px;border:1px solid rgba(233,196,106,.3);
+    background:linear-gradient(160deg,rgba(233,196,106,.08),rgba(240,163,181,.06))}
   .ship-hero .name{font-family:var(--display);font-size:clamp(2.2rem,7vw,3.6rem);line-height:1;margin:10px 0 6px}
-  .ship-hero .name em{font-style:italic;color:var(--amber)}
+  .ship-hero .name em{font-style:italic;color:var(--gold)}
   .video{position:relative;padding-top:56.25%;margin-top:22px;border:1px solid var(--rule);background:#000}
   .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   .specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1px;margin-top:22px;background:var(--rule)}
   .specs div{background:var(--ink);padding:16px 14px}
-  .specs .n{font-family:var(--display);font-size:1.55rem;color:var(--amber)}
+  .specs .n{font-family:var(--display);font-size:1.55rem;color:var(--gold)}
   .specs .l{font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-top:3px}
   .feats{list-style:none;margin-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--rule)}
   .feats li{background:var(--ink);padding:18px 16px}
-  .feats b{display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sea);margin-bottom:6px}
-  .feats span{font-size:.92rem;color:#C4D4D8}
+  .feats b{display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);margin-bottom:6px}
+  .feats span{font-size:.92rem;color:#E3D2D8}
 
-  .board{margin-top:24px;border:1px solid var(--rule);background:#050D16}
+  /* BOARD */
+  .board{margin-top:24px;border:1px solid var(--rule);background:#160B19}
   .board-head{display:grid;grid-template-columns:96px 1fr 112px;gap:12px;padding:12px 16px;border-bottom:1px solid var(--rule);
     font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
   .flap{display:grid;grid-template-columns:96px 1fr 112px;gap:12px;align-items:center;padding:14px 16px;
-    border-bottom:1px solid rgba(234,242,240,.07);cursor:pointer;transition:background .2s}
-  .flap:last-child{border-bottom:0}
-  .flap:hover{background:rgba(47,191,166,.06)}
+    border-bottom:1px solid rgba(247,238,232,.07);cursor:pointer;transition:background .2s}
+  .flap:hover{background:rgba(240,163,181,.06)}
   .flap .d{font-family:var(--mono);font-size:.72rem;color:var(--mute)}
-  .flap .p{font-family:var(--mono);font-weight:600;font-size:clamp(.9rem,2.4vw,1.1rem);letter-spacing:.1em;color:var(--amber);
-    background:linear-gradient(180deg,#1A2938,#0D1620);padding:8px 12px;border:1px solid rgba(255,182,39,.16)}
-  .flap .p.hidden{color:#4A5C6B;letter-spacing:.3em;border-color:var(--rule)}
+  .flap .p{font-family:var(--mono);font-weight:600;font-size:clamp(.9rem,2.4vw,1.1rem);letter-spacing:.1em;color:var(--gold);
+    background:linear-gradient(180deg,#33203A,#1B0E20);padding:8px 12px;border:1px solid rgba(233,196,106,.18)}
+  .flap .p.hidden{color:#6B5468;letter-spacing:.3em;border-color:var(--rule)}
   .flap.done .p{animation:flip .5s cubic-bezier(.2,.8,.2,1) both}
   @keyframes flip{0%{transform:rotateX(-90deg);opacity:0}100%{transform:rotateX(0);opacity:1}}
-  .flap .t{font-family:var(--mono);font-size:.68rem;color:var(--sea);text-align:right}
-  .flap .t.hidden{color:#3E4E5C}
+  .flap .t{font-family:var(--mono);font-size:.68rem;color:var(--rose);text-align:right}
+  .flap .t.hidden{color:#584357}
   .board-note{padding:12px 16px;font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);border-top:1px solid var(--rule)}
 
-  .note{margin-top:20px;padding:22px 24px;border-left:2px solid var(--rose);background:rgba(242,160,180,.05)}
-  .note p{color:#E4CBD2;font-family:var(--display);font-style:italic;font-size:1.15rem;line-height:1.55;max-width:58ch;margin:0}
+  /* PORT PHOTO REVEAL */
+  .port-photo{max-height:0;overflow:hidden;transition:max-height .7s cubic-bezier(.2,.8,.2,1);
+    border-bottom:1px solid rgba(247,238,232,.07);background:#120A15}
+  .port-photo.show{max-height:460px}
+  .port-photo .frame{position:relative;margin:14px 16px 6px;overflow:hidden;border:1px solid rgba(240,163,181,.2)}
+  .port-photo img{width:100%;height:min(300px,45vw);object-fit:cover;display:block;animation:kenburns 9s ease-out both}
+  @keyframes kenburns{from{transform:scale(1.08)}to{transform:scale(1)}}
+  .port-photo .cap{font-family:var(--display);font-style:italic;font-size:1.05rem;color:#EFC9D2;
+    padding:10px 16px 16px;max-width:60ch}
 
-  #finale{display:none;margin-top:56px;text-align:center;padding:56px 24px;border:1px solid rgba(255,182,39,.3);
-    background:linear-gradient(180deg,rgba(255,182,39,.07),transparent)}
+  /* LOVE NOTE */
+  .note{margin-top:20px;padding:22px 24px;border-left:2px solid var(--rose);background:rgba(240,163,181,.06)}
+  .note p{color:#EFC9D2;font-family:var(--display);font-style:italic;font-size:1.15rem;line-height:1.55;max-width:58ch;margin:0}
+
+  /* FINALE */
+  #finale{display:none;margin-top:56px;text-align:center;padding:56px 24px;border:1px solid rgba(233,196,106,.32);
+    background:linear-gradient(180deg,rgba(240,163,181,.07),transparent)}
   #finale.on{display:block;animation:fade 1s ease both}
   #finale h3{font-family:var(--display);font-size:clamp(2rem,6vw,3.2rem);line-height:1.05;margin:14px 0 16px}
-  #finale h3 em{font-style:italic;color:var(--amber)}
+  #finale h3 em{font-style:italic;color:var(--gold)}
   #finale p{color:var(--mute);max-width:48ch;margin:0 auto 8px}
   .sig{margin-top:26px;font-family:var(--display);font-style:italic;font-size:1.5rem;color:var(--pale)}
 
@@ -142,27 +173,29 @@
     .flap .t,.board-head span:last-child{grid-column:2;text-align:left}
   }
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
-  :focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 </style>
 </head>
 <body>
 
+<!-- ============ GATE ============ -->
 <section id="gate">
   <div class="seal-card">
-    <div class="eyebrow">For Caitlin · From Joshua</div>
+    <div class="eyebrow">For Caitlin &middot; From Joshua</div>
     <h1>Happy birthday,<br><em>my love</em></h1>
     <p>You know we're going away for your birthday. You don't know where. Everything is booked, everything is paid for, and everything is behind this seal. All you have to do is break it.</p>
     <button class="wax" id="breakSeal" aria-label="Break the seal">Break<br>the seal</button>
-    <div class="countdown" id="countdown">Calculating…</div>
+    <div class="countdown" id="countdown">Calculating&hellip;</div>
   </div>
 </section>
 
+<!-- ============ REVEAL ============ -->
 <main id="reveal" class="wrap">
 
   <div class="masthead">
-    <div class="eyebrow">Ten days · Two countries · One ship · The two of us</div>
+    <div class="eyebrow">Ten days &middot; Two countries &middot; One ship &middot; The two of us</div>
     <h2>Your birthday trip, <em>revealed</em></h2>
-    <p>A year ago this August we met, and this year I wanted your birthday to be somewhere worthy of both. Five sealed stops below. Open them one at a time — I've saved the best for the middle.</p>
+    <p>A year ago this August we met, and this year I wanted your birthday to be somewhere worthy of both. Five sealed stops below. Open them one at a time &mdash; I've saved the best for the middle.</p>
   </div>
 
   <div class="progress">
@@ -173,36 +206,38 @@
     </div>
   </div>
 
+  <!-- 1: FLIGHT OUT -->
   <article class="stop locked" data-stop>
     <div class="stub">
-      <div class="daynum">Day 01 · Fri 28 Aug</div>
+      <div class="daynum">Day 01 &middot; Fri 28 Aug</div>
       <div class="stub-mid">
         <div class="k">Where I'm taking you</div>
         <div class="s">The birthday begins at the airport</div>
       </div>
-      <div class="tap">Tap to open →</div>
+      <div class="tap">Tap to open &rarr;</div>
     </div>
     <div class="body">
       <div class="pass">
         <div><div class="code">BOH</div><div class="city">Bournemouth</div><div class="time">Departs 19:25</div></div>
-        <div class="mid">✈</div>
+        <div class="mid">&#9992;</div>
         <div class="r"><div class="code">GRO</div><div class="city">Girona, Catalonia</div><div class="time">Lands 22:20</div></div>
       </div>
-      <p>We fly out of Bournemouth on the Friday evening — over the Pyrenees and down into Catalonia in time for a late drink together under a warm sky. Pack for sunshine. I'll carry the heavy bag.</p>
+      <p>We fly out of Bournemouth on the Friday evening &mdash; over the Pyrenees and down into Catalonia in time for a late drink together under a warm sky. Pack for sunshine. I'll carry the heavy bag.</p>
     </div>
   </article>
 
+  <!-- 2: HOTEL -->
   <article class="stop locked" data-stop>
     <div class="stub">
-      <div class="daynum">Night 01 · Girona</div>
+      <div class="daynum">Night 01 &middot; Girona</div>
       <div class="stub-mid">
         <div class="k">Our first night</div>
         <div class="s">A rooftop, a cathedral, a cocktail</div>
       </div>
-      <div class="tap">Tap to open →</div>
+      <div class="tap">Tap to open &rarr;</div>
     </div>
     <div class="body">
-      <p><strong>Hotel Ultonia, Girona</strong> — in the heart of the old town since 1962, a few minutes' walk from the cathedral steps and the painted houses along the river. Its rooftop cocktail terrace looks straight across the rooftops to the cathedral, lit up gold after dark. That's where I'm taking you the moment we've dropped the bags.</p>
+      <p><strong>Hotel Ultonia, Girona</strong> &mdash; in the heart of the old town since 1962, a few minutes' walk from the cathedral steps and the painted houses along the river. Its rooftop cocktail terrace looks straight across the rooftops to the cathedral, lit up gold after dark. That's where I'm taking you the moment we've dropped the bags.</p>
       <div class="gallery">
         <figure><img loading="lazy" onerror="this.parentElement.style.display='none'" src="images/girona-1.jpg" alt="The Ultonia rooftop terrace at dusk"></figure>
         <figure><img loading="lazy" onerror="this.parentElement.style.display='none'" src="images/girona-2.jpg" alt="Girona Cathedral from the hotel terrace"></figure>
@@ -211,29 +246,30 @@
         <figure><img loading="lazy" onerror="this.parentElement.style.display='none'" src="images/girona-5.jpg" alt="Views over Girona from the terrace"></figure>
       </div>
       <div class="note">
-        <p>One night in a city built for wandering — cobbles, candlelight, and you. I can't think of a better way to start.</p>
+        <p>One night in a city built for wandering &mdash; cobbles, candlelight, and you. I can't think of a better way to start.</p>
       </div>
     </div>
   </article>
 
+  <!-- 3: THE SHIP -->
   <article class="stop locked" data-stop>
     <div class="stub">
-      <div class="daynum">Day 02 · Sat 29 Aug</div>
+      <div class="daynum">Day 02 &middot; Sat 29 Aug</div>
       <div class="stub-mid">
         <div class="k">The big one</div>
         <div class="s">This is the part I've been dying to tell you</div>
       </div>
-      <div class="tap">Tap to open →</div>
+      <div class="tap">Tap to open &rarr;</div>
     </div>
     <div class="body">
-      <p>In the morning a car collects us from the hotel and drives us down to Barcelona — but not to a hotel. To the port. Because waiting for us there is this:</p>
+      <p>In the morning a car collects us from the hotel and drives us down to Barcelona &mdash; but not to a hotel. To the port. Because waiting for us there is this:</p>
       <div class="ship-hero">
         <div class="eyebrow">Our home for seven nights</div>
         <div class="name">Celebrity <em>Xcel</em></div>
-        <p>The <strong>newest ship in the Celebrity fleet</strong> — she only entered service in November 2025, the fifth and final ship of the Edge Series. She spends her winters in the Caribbean and her summers in the Mediterranean, and for one week of this summer, she's ours.</p>
+        <p>The <strong>newest ship in the Celebrity fleet</strong> &mdash; she only entered service in November 2025, the fifth and final ship of the Edge Series. She spends her winters in the Caribbean and her summers in the Mediterranean, and for one week of this summer, she's ours.</p>
 
         <div class="video">
-          <iframe src="https://www.youtube-nocookie.com/embed/_8c8fnGyNt4" title="Celebrity Xcel — full ship tour" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          <iframe src="https://www.youtube-nocookie.com/embed/_8c8fnGyNt4" title="Celebrity Xcel &mdash; full ship tour" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
 
         <div class="specs">
@@ -247,70 +283,114 @@
 
         <ul class="feats">
           <li><b>The Magic Carpet</b><span>A tennis-court-sized glass platform cantilevered off the side of the ship that moves up and down the decks. Some days it's a bar. Some nights it's a restaurant suspended over the sea. We're having a drink on it, obviously.</span></li>
-          <li><b>The Bazaar</b><span>Brand new to Xcel — a three-deck marketplace of food, music and festivals that changes to match wherever we woke up that morning.</span></li>
+          <li><b>The Bazaar</b><span>Brand new to Xcel &mdash; a three-deck marketplace of food, music and festivals that changes to match wherever we woke up that morning.</span></li>
           <li><b>Infinite Verandas</b><span>Press a button and the wall of the room slides away. The bedroom becomes a balcony over the Mediterranean.</span></li>
-          <li><b>Le Voyage by Daniel Boulud</b><span>A fifty-seat restaurant from one of the most decorated chefs alive — I'm booking us a table for one of the nights.</span></li>
+          <li><b>Le Voyage by Daniel Boulud</b><span>A fifty-seat restaurant from one of the most decorated chefs alive &mdash; I'm booking us a table for one of the nights.</span></li>
           <li><b>The Solarium &amp; spa</b><span>Adults-only glass-domed pool, hot tubs and a thermal suite. Our sea day has a plan, and the plan is nothing.</span></li>
           <li><b>Sunset Bar &amp; Rooftop Garden</b><span>Two storeys of Moroccan-styled bar at the back of the ship, pointed at the wake and the sunset. That's where we'll be most evenings.</span></li>
         </ul>
       </div>
-      <p>She sails from Barcelona at 5:00pm. Which leaves one question — where is she taking us?</p>
+      <p>She sails from Barcelona at 5:00pm. Which leaves one question &mdash; where is she taking us?</p>
     </div>
   </article>
 
+  <!-- 4: PORTS -->
   <article class="stop locked" data-stop>
     <div class="stub">
-      <div class="daynum">29 Aug – 5 Sep</div>
+      <div class="daynum">29 Aug &ndash; 5 Sep</div>
       <div class="stub-mid">
         <div class="k">Where we wake up</div>
         <div class="s">Seven mornings. Tap every line.</div>
       </div>
-      <div class="tap">Tap to open →</div>
+      <div class="tap">Tap to open &rarr;</div>
     </div>
     <div class="body">
       <p>Every morning of that week, we open the curtains somewhere new. Flip each line to see where.</p>
       <div class="board">
         <div class="board-head"><span>Date</span><span>Destination</span><span>Detail</span></div>
-        <div class="flap" data-port="Barcelona, Spain" data-time="Sail 17:00"><span class="d">Sat 29 Aug</span><span class="p hidden">• • • • • •</span><span class="t hidden">— — —</span></div>
-        <div class="flap" data-port="Nice · Villefranche, France" data-time="Côte d'Azur"><span class="d">Sun 30 Aug</span><span class="p hidden">• • • • • •</span><span class="t hidden">— — —</span></div>
-        <div class="flap" data-port="Portofino, Italy" data-time="Italian Riviera"><span class="d">Mon 31 Aug</span><span class="p hidden">• • • • • •</span><span class="t hidden">— — —</span></div>
-        <div class="flap" data-port="Florence &amp; Pisa · La Spezia" data-time="Tuscany"><span class="d">Tue 1 Sep</span><span class="p hidden">• • • • • •</span><span class="t hidden">— — —</span></div>
-        <div class="flap" data-port="Rome · Civitavecchia" data-time="Lazio"><span class="d">Wed 2 Sep</span><span class="p hidden">• • • • • •</span><span class="t hidden">— — —</span></div>
-        <div class="flap" data-port="Naples, Italy" data-time="Campania"><span class="d">Thu 3 Sep</span><span class="p hidden">• • • • • •</span><span class="t hidden">— — —</span></div>
-        <div class="flap" data-port="A day at sea, just us" data-time="Nowhere at all"><span class="d">Fri 4 Sep</span><span class="p hidden">• • • • • •</span><span class="t hidden">— — —</span></div>
-        <div class="flap" data-port="Barcelona, Spain" data-time="Arrive 05:00"><span class="d">Sat 5 Sep</span><span class="p hidden">• • • • • •</span><span class="t hidden">— — —</span></div>
+
+        <div class="flap" data-port="Barcelona, Spain" data-time="Sail 17:00"
+             data-img="images/port-barcelona.jpg"
+             data-cap="Where it all begins &mdash; we sail out past the city as the sun starts to drop.">
+          <span class="d">Sat 29 Aug</span><span class="p hidden">&bull; &bull; &bull; &bull; &bull; &bull;</span><span class="t hidden">&mdash; &mdash; &mdash;</span></div>
+        <div class="port-photo"><div class="frame"><img loading="lazy" onerror="this.closest('.port-photo').remove()" alt="Barcelona"></div><div class="cap"></div></div>
+
+        <div class="flap" data-port="Nice &middot; Villefranche, France" data-time="C&ocirc;te d'Azur"
+             data-img="images/port-nice.jpg"
+             data-cap="Our first morning: the French Riviera. Pastel houses, a pebble beach, and ros&eacute; before noon because we're on holiday.">
+          <span class="d">Sun 30 Aug</span><span class="p hidden">&bull; &bull; &bull; &bull; &bull; &bull;</span><span class="t hidden">&mdash; &mdash; &mdash;</span></div>
+        <div class="port-photo"><div class="frame"><img loading="lazy" onerror="this.closest('.port-photo').remove()" alt="Villefranche-sur-Mer, near Nice"></div><div class="cap"></div></div>
+
+        <div class="flap" data-port="Portofino, Italy" data-time="Italian Riviera"
+             data-img="images/port-portofino.jpg"
+             data-cap="Possibly the prettiest harbour in the Mediterranean. I'm buying you an aperol in that little square.">
+          <span class="d">Mon 31 Aug</span><span class="p hidden">&bull; &bull; &bull; &bull; &bull; &bull;</span><span class="t hidden">&mdash; &mdash; &mdash;</span></div>
+        <div class="port-photo"><div class="frame"><img loading="lazy" onerror="this.closest('.port-photo').remove()" alt="Portofino harbour"></div><div class="cap"></div></div>
+
+        <div class="flap" data-port="Florence &amp; Pisa &middot; La Spezia" data-time="Tuscany"
+             data-img="images/port-florence.jpg"
+             data-cap="A whole day in Tuscany &mdash; the Duomo, the leaning tower, or a long lunch in a hill town. Dealer's choice.">
+          <span class="d">Tue 1 Sep</span><span class="p hidden">&bull; &bull; &bull; &bull; &bull; &bull;</span><span class="t hidden">&mdash; &mdash; &mdash;</span></div>
+        <div class="port-photo"><div class="frame"><img loading="lazy" onerror="this.closest('.port-photo').remove()" alt="Florence"></div><div class="cap"></div></div>
+
+        <div class="flap" data-port="Rome &middot; Civitavecchia" data-time="Lazio"
+             data-img="images/port-rome.jpg"
+             data-cap="The eternal city, with you in it. We'll throw a coin in the Trevi so we have to come back.">
+          <span class="d">Wed 2 Sep</span><span class="p hidden">&bull; &bull; &bull; &bull; &bull; &bull;</span><span class="t hidden">&mdash; &mdash; &mdash;</span></div>
+        <div class="port-photo"><div class="frame"><img loading="lazy" onerror="this.closest('.port-photo').remove()" alt="Rome"></div><div class="cap"></div></div>
+
+        <div class="flap" data-port="Naples, Italy" data-time="Campania"
+             data-img="images/port-naples.jpg"
+             data-cap="Vesuvius on the horizon and the best pizza on earth in front of us. Non-negotiable.">
+          <span class="d">Thu 3 Sep</span><span class="p hidden">&bull; &bull; &bull; &bull; &bull; &bull;</span><span class="t hidden">&mdash; &mdash; &mdash;</span></div>
+        <div class="port-photo"><div class="frame"><img loading="lazy" onerror="this.closest('.port-photo').remove()" alt="Naples and Vesuvius"></div><div class="cap"></div></div>
+
+        <div class="flap" data-port="A day at sea, just us" data-time="Nowhere at all"
+             data-img="images/port-sea.jpg"
+             data-cap="No ports, no plans, no alarm. Just the Mediterranean, the sunset bar, and us.">
+          <span class="d">Fri 4 Sep</span><span class="p hidden">&bull; &bull; &bull; &bull; &bull; &bull;</span><span class="t hidden">&mdash; &mdash; &mdash;</span></div>
+        <div class="port-photo"><div class="frame"><img loading="lazy" onerror="this.closest('.port-photo').remove()" alt="Open sea at sunset"></div><div class="cap"></div></div>
+
+        <div class="flap" data-port="Barcelona, Spain" data-time="Arrive 05:00"
+             data-img="images/port-barcelona-2.jpg"
+             data-cap="Back where we started &mdash; but not home yet. One more surprise below.">
+          <span class="d">Sat 5 Sep</span><span class="p hidden">&bull; &bull; &bull; &bull; &bull; &bull;</span><span class="t hidden">&mdash; &mdash; &mdash;</span></div>
+        <div class="port-photo"><div class="frame"><img loading="lazy" onerror="this.closest('.port-photo').remove()" alt="Barcelona at dawn"></div><div class="cap"></div></div>
+
       </div>
       <div class="board-note" id="boardNote">0 of 8 flipped</div>
       <div class="note">
-        <p>The French Riviera, Portofino's harbour, Tuscany, Rome, Naples — and one whole day at sea with nothing to do but be together. I planned that day most carefully of all.</p>
+        <p>The French Riviera, Portofino's harbour, Tuscany, Rome, Naples &mdash; and one whole day at sea with nothing to do but be together. I planned that day most carefully of all.</p>
       </div>
     </div>
   </article>
 
+  <!-- 5: BARCELONA + HOME -->
   <article class="stop locked" data-stop>
     <div class="stub">
-      <div class="daynum">Days 09–10 · 5–6 Sep</div>
+      <div class="daynum">Days 09&ndash;10 &middot; 5&ndash;6 Sep</div>
       <div class="stub-mid">
         <div class="k">One last city, then home</div>
         <div class="s">Barcelona is ours for a day</div>
       </div>
-      <div class="tap">Tap to open →</div>
+      <div class="tap">Tap to open &rarr;</div>
     </div>
     <div class="body">
-      <p>We step off the ship early Saturday morning with a whole city in front of us and nowhere we have to be — a night in a Barcelona hotel and a day to spend exactly how you want. Gaudí, tapas, the Gothic Quarter, or a long lunch that turns into dinner. Your birthday trip, your call.</p>
+      <p>We step off the ship early Saturday morning with a whole city in front of us and nowhere we have to be &mdash; a night in a Barcelona hotel and a day to spend exactly how you want. Gaud&iacute;, tapas, the Gothic Quarter, or a long lunch that turns into dinner. Your birthday trip, your call.</p>
       <div class="pass">
         <div><div class="code">BCN</div><div class="city">Barcelona</div><div class="time">Departs 13:35</div></div>
-        <div class="mid">✈</div>
-        <div class="r"><div class="code">BOH</div><div class="city">Bournemouth</div><div class="time">Lands 14:30 · Sun 6 Sep</div></div>
+        <div class="mid">&#9992;</div>
+        <div class="r"><div class="code">BOH</div><div class="city">Bournemouth</div><div class="time">Lands 14:30 &middot; Sun 6 Sep</div></div>
       </div>
       <p class="muted">Then home on the Sunday afternoon, hopefully a little sunburnt and thoroughly spoiled.</p>
     </div>
   </article>
 
+  <!-- FINALE -->
   <section id="finale">
     <div class="eyebrow">That's everything</div>
     <h3>Ten days, and every one <em>of them yours.</em></h3>
-    <p>A year ago this month I met you, and it's been the best year I've had. This is my way of saying so: Girona, the Mediterranean, five countries' worth of coastline, and the newest ship on the sea — with the person I most want to see it all with.</p>
+    <p>A year ago this month I met you, and it's been the best year I've had. This is my way of saying so: Girona, the Mediterranean, five countries' worth of coastline, and the newest ship on the sea &mdash; with the person I most want to see it all with.</p>
     <p>Happy birthday, Caitlin. I can't wait.</p>
     <div class="sig">All my love, Joshua x</div>
   </section>
@@ -330,7 +410,7 @@
     var d=target-Date.now();
     if(d<=0){cd.textContent='It is happening right now.';return;}
     var days=Math.floor(d/864e5),hrs=Math.floor(d%864e5/36e5),min=Math.floor(d%36e5/6e4);
-    cd.innerHTML='<b>'+days+'</b> days <b>'+hrs+'</b> hrs <b>'+min+'</b> mins — until we leave';
+    cd.innerHTML='<b>'+days+'</b> days <b>'+hrs+'</b> hrs <b>'+min+'</b> mins &mdash; until we leave';
   }
   tick();setInterval(tick,30000);
 
@@ -350,7 +430,7 @@
     s.setAttribute('tabindex','0');
     s.addEventListener('click',function(e){
       if(!s.classList.contains('locked'))return;
-      if(e.target.closest('.flap'))return;
+      if(e.target.closest('.flap')||e.target.closest('.port-photo'))return;
       s.classList.remove('locked');s.classList.add('open');opened++;updateProgress();
       setTimeout(function(){s.scrollIntoView({block:'start'});},120);
     });
@@ -368,9 +448,16 @@
       if(f.classList.contains('done'))return;
       var p=f.querySelector('.p'),t=f.querySelector('.t');
       p.innerHTML=f.dataset.port;p.classList.remove('hidden');
-      t.textContent=f.dataset.time;t.classList.remove('hidden');
+      t.innerHTML=f.dataset.time;t.classList.remove('hidden');
       f.classList.add('done');flipped++;
-      note.textContent=(flipped===flaps.length)?'Board complete — that is our whole voyage.':flipped+' of '+flaps.length+' flipped';
+      var photo=f.nextElementSibling;
+      if(photo&&photo.classList.contains('port-photo')){
+        var img=photo.querySelector('img');
+        if(img&&!img.getAttribute('src'))img.src=f.dataset.img;
+        photo.querySelector('.cap').innerHTML=f.dataset.cap;
+        photo.classList.add('show');
+      }
+      note.textContent=(flipped===flaps.length)?'Board complete \u2014 that is our whole voyage.':flipped+' of '+flaps.length+' flipped';
     }
     f.addEventListener('click',function(e){e.stopPropagation();flip();});
     f.addEventListener('keydown',function(e){
