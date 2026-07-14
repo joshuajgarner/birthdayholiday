@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sealed Orders</title>
+<title>Happy Birthday, Caitlin</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#04121F; --sea:#2FBFA6; --amber:#FFB627; --pale:#EAF2F0; --mute:#7E97A6;
+    --ink:#04121F; --sea:#2FBFA6; --amber:#FFB627; --rose:#F2A0B4; --pale:#EAF2F0; --mute:#7E97A6;
     --rule:rgba(234,242,240,.14);
     --display:"Instrument Serif",Georgia,serif;
     --mono:"IBM Plex Mono",ui-monospace,monospace;
@@ -25,10 +25,10 @@
 
   #gate{min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 22px}
   #gate.gone{display:none}
-  .seal-card{max-width:520px}
-  .seal-card h1{font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,7vw,4.2rem);line-height:1.02;margin:18px 0 14px}
+  .seal-card{max-width:560px}
+  .seal-card h1{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,7vw,4rem);line-height:1.05;margin:18px 0 14px}
   .seal-card h1 em{font-style:italic;color:var(--amber)}
-  .seal-card p{color:var(--mute);font-size:1.02rem;max-width:38ch;margin:0 auto}
+  .seal-card p{color:var(--mute);font-size:1.02rem;max-width:42ch;margin:0 auto}
   .wax{width:132px;height:132px;margin:36px auto 26px;border-radius:50%;border:none;cursor:pointer;position:relative;
     background:radial-gradient(circle at 35% 30%,#FFCF6B,#E2892B 55%,#A85C12 100%);
     box-shadow:0 0 0 1px rgba(255,214,120,.5),0 18px 50px rgba(255,182,39,.22);
@@ -47,7 +47,7 @@
   .masthead{text-align:center;margin-bottom:16px}
   .masthead h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,5.2vw,3.2rem);line-height:1.08;margin:12px 0 10px}
   .masthead h2 em{font-style:italic;color:var(--amber)}
-  .masthead p{color:var(--mute);max-width:46ch;margin:0 auto}
+  .masthead p{color:var(--mute);max-width:52ch;margin:0 auto}
 
   .progress{position:sticky;top:0;z-index:40;margin:34px 0 46px;background:rgba(4,18,31,.88);backdrop-filter:blur(10px);
     border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:11px 0}
@@ -121,12 +121,15 @@
   .flap .t.hidden{color:#3E4E5C}
   .board-note{padding:12px 16px;font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);border-top:1px solid var(--rule)}
 
+  .note{margin-top:20px;padding:22px 24px;border-left:2px solid var(--rose);background:rgba(242,160,180,.05)}
+  .note p{color:#E4CBD2;font-family:var(--display);font-style:italic;font-size:1.15rem;line-height:1.55;max-width:58ch;margin:0}
+
   #finale{display:none;margin-top:56px;text-align:center;padding:56px 24px;border:1px solid rgba(255,182,39,.3);
     background:linear-gradient(180deg,rgba(255,182,39,.07),transparent)}
   #finale.on{display:block;animation:fade 1s ease both}
   #finale h3{font-family:var(--display);font-size:clamp(2rem,6vw,3.2rem);line-height:1.05;margin:14px 0 16px}
   #finale h3 em{font-style:italic;color:var(--amber)}
-  #finale p{color:var(--mute);max-width:44ch;margin:0 auto}
+  #finale p{color:var(--mute);max-width:48ch;margin:0 auto 8px}
   .sig{margin-top:26px;font-family:var(--display);font-style:italic;font-size:1.5rem;color:var(--pale)}
 
   @media (max-width:640px){
@@ -146,9 +149,9 @@
 
 <section id="gate">
   <div class="seal-card">
-    <div class="eyebrow">Private &amp; confidential</div>
-    <h1>Sealed <em>orders</em></h1>
-    <p>Something has been booked in your name. Nothing here opens on its own — you'll have to do that part yourself.</p>
+    <div class="eyebrow">For Caitlin · From Joshua</div>
+    <h1>Happy birthday,<br><em>my love</em></h1>
+    <p>You know we're going away for your birthday. You don't know where. Everything is booked, everything is paid for, and everything is behind this seal. All you have to do is break it.</p>
     <button class="wax" id="breakSeal" aria-label="Break the seal">Break<br>the seal</button>
     <div class="countdown" id="countdown">Calculating…</div>
   </div>
@@ -157,14 +160,14 @@
 <main id="reveal" class="wrap">
 
   <div class="masthead">
-    <div class="eyebrow">Ten days · Two countries · One ship</div>
-    <h2>Happy birthday, <em>Caitlin</em></h2>
-    <p>Six sealed stops. Open them one at a time — in order, if you can bear it.</p>
+    <div class="eyebrow">Ten days · Two countries · One ship · The two of us</div>
+    <h2>Your birthday trip, <em>revealed</em></h2>
+    <p>A year ago this August we met, and this year I wanted your birthday to be somewhere worthy of both. Five sealed stops below. Open them one at a time — I've saved the best for the middle.</p>
   </div>
 
   <div class="progress">
     <div class="inner">
-      <span id="pcount">0 / 6 opened</span>
+      <span id="pcount">0 / 5 opened</span>
       <div class="bar"><i id="pbar"></i></div>
       <span class="muted">Boarding</span>
     </div>
@@ -173,7 +176,10 @@
   <article class="stop locked" data-stop>
     <div class="stub">
       <div class="daynum">Day 01 · Fri 28 Aug</div>
-      <div class="stub-mid"><div class="k">The flight out</div><div class="s">Somewhere warmer than Dorset</div></div>
+      <div class="stub-mid">
+        <div class="k">Where I'm taking you</div>
+        <div class="s">The birthday begins at the airport</div>
+      </div>
       <div class="tap">Tap to open →</div>
     </div>
     <div class="body">
@@ -182,24 +188,30 @@
         <div class="mid">✈</div>
         <div class="r"><div class="code">GRO</div><div class="city">Girona, Catalonia</div><div class="time">Lands 22:20</div></div>
       </div>
-      <p>Straight out of Bournemouth, over the Pyrenees and down into Catalonia in time for a late drink. Pack for heat.</p>
+      <p>We fly out of Bournemouth on the Friday evening — over the Pyrenees and down into Catalonia in time for a late drink together under a warm sky. Pack for sunshine. I'll carry the heavy bag.</p>
     </div>
   </article>
 
   <article class="stop locked" data-stop>
     <div class="stub">
       <div class="daynum">Night 01 · Girona</div>
-      <div class="stub-mid"><div class="k">Where you're sleeping</div><div class="s">In the old town, since 1962</div></div>
+      <div class="stub-mid">
+        <div class="k">Our first night</div>
+        <div class="s">A rooftop, a cathedral, a cocktail</div>
+      </div>
       <div class="tap">Tap to open →</div>
     </div>
     <div class="body">
-      <p><strong>Hotel Ultonia, Girona.</strong> Gran Via de Jaume I — a few minutes' walk from the cathedral steps, the painted houses on the Onyar and the medieval walls. The rooftop terrace looks straight over the old town, with the cathedral lit up behind the cocktails. That's the first evening sorted.</p>
+      <p><strong>Hotel Ultonia, Girona</strong> — in the heart of the old town since 1962, a few minutes' walk from the cathedral steps and the painted houses along the river. Its rooftop cocktail terrace looks straight across the rooftops to the cathedral, lit up gold after dark. That's where I'm taking you the moment we've dropped the bags.</p>
       <div class="gallery">
-        <figure><img loading="lazy" src="https://hotelsultoniagirona.com/wp-content/uploads/2024/01/hotel-ultonia-3190.webp" alt="The Ultonia rooftop terrace at dusk"></figure>
-        <figure><img loading="lazy" src="https://hotelsultoniagirona.com/wp-content/uploads/2021/08/011_catedral-girona-ultonia-683x1024.jpg" alt="Girona Cathedral from the hotel terrace"></figure>
-        <figure><img loading="lazy" src="https://hotelsultoniagirona.com/wp-content/uploads/2021/08/014_dia-terrassa-ultonia-1024x683.jpg" alt="The terrace by day"></figure>
-        <figure><img loading="lazy" src="https://hotelsultoniagirona.com/wp-content/uploads/2021/08/016_barra-cocteleria-girona-1024x683.jpg" alt="The rooftop cocktail bar"></figure>
-        <figure><img loading="lazy" src="https://hotelsultoniagirona.com/wp-content/uploads/2021/08/05_vistas-terrassa-ultonia.jpg" alt="Views over Girona"></figure>
+        <figure><img loading="lazy" onerror="this.parentElement.style.display='none'" src="images/girona-1.jpg" alt="The Ultonia rooftop terrace at dusk"></figure>
+        <figure><img loading="lazy" onerror="this.parentElement.style.display='none'" src="images/girona-2.jpg" alt="Girona Cathedral from the hotel terrace"></figure>
+        <figure><img loading="lazy" onerror="this.parentElement.style.display='none'" src="images/girona-3.jpg" alt="The terrace by day"></figure>
+        <figure><img loading="lazy" onerror="this.parentElement.style.display='none'" src="images/girona-4.jpg" alt="The rooftop cocktail bar"></figure>
+        <figure><img loading="lazy" onerror="this.parentElement.style.display='none'" src="images/girona-5.jpg" alt="Views over Girona from the terrace"></figure>
+      </div>
+      <div class="note">
+        <p>One night in a city built for wandering — cobbles, candlelight, and you. I can't think of a better way to start.</p>
       </div>
     </div>
   </article>
@@ -207,26 +219,18 @@
   <article class="stop locked" data-stop>
     <div class="stub">
       <div class="daynum">Day 02 · Sat 29 Aug</div>
-      <div class="stub-mid"><div class="k">A car is coming for you</div><div class="s">Girona → Barcelona, private transfer</div></div>
+      <div class="stub-mid">
+        <div class="k">The big one</div>
+        <div class="s">This is the part I've been dying to tell you</div>
+      </div>
       <div class="tap">Tap to open →</div>
     </div>
     <div class="body">
-      <p>No trains, no queues, no dragging cases across a concourse. A private car collects you from the hotel and runs you down to Barcelona — about an hour and a half, door to door.</p>
-      <p class="muted">It does not drop you at a hotel. It drops you at a port.</p>
-    </div>
-  </article>
-
-  <article class="stop locked" data-stop>
-    <div class="stub">
-      <div class="daynum">Day 02 · 17:00</div>
-      <div class="stub-mid"><div class="k">The bit I'm most excited about</div><div class="s">Open this one properly</div></div>
-      <div class="tap">Tap to open →</div>
-    </div>
-    <div class="body">
+      <p>In the morning a car collects us from the hotel and drives us down to Barcelona — but not to a hotel. To the port. Because waiting for us there is this:</p>
       <div class="ship-hero">
-        <div class="eyebrow">Your home for seven nights</div>
+        <div class="eyebrow">Our home for seven nights</div>
         <div class="name">Celebrity <em>Xcel</em></div>
-        <p>She only entered service in <strong>November 2025</strong> — the newest ship in the Celebrity fleet, and the fifth and final ship of the Edge Series. Winters in the Caribbean, summers in the Mediterranean. You get her in the summer.</p>
+        <p>The <strong>newest ship in the Celebrity fleet</strong> — she only entered service in November 2025, the fifth and final ship of the Edge Series. She spends her winters in the Caribbean and her summers in the Mediterranean, and for one week of this summer, she's ours.</p>
 
         <div class="video">
           <iframe src="https://www.youtube-nocookie.com/embed/_8c8fnGyNt4" title="Celebrity Xcel — full ship tour" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
@@ -242,26 +246,29 @@
         </div>
 
         <ul class="feats">
-          <li><b>The Magic Carpet</b><span>A tennis-court-sized glass platform cantilevered off the side of the ship that physically moves up and down the decks. Some days it's a bar. Some nights it's a restaurant hanging out over the sea.</span></li>
-          <li><b>The Bazaar</b><span>Brand new to Xcel — a three-deck marketplace of food, music and festivals that changes to match wherever you woke up that morning.</span></li>
-          <li><b>Infinite Verandas</b><span>Press a button and the wall of the room slides down. The bedroom becomes a balcony.</span></li>
-          <li><b>Le Voyage by Daniel Boulud</b><span>A fifty-seat restaurant from one of the most decorated chefs alive. At sea.</span></li>
-          <li><b>The Solarium &amp; spa</b><span>Adults-only glass-domed pool, hot tubs and a reimagined thermal suite. An entirely acceptable use of a sea day.</span></li>
-          <li><b>Sunset Bar &amp; Rooftop Garden</b><span>Two storeys of Moroccan-styled bar at the back of the ship, pointed at the wake and the sunset — twice the size of the one on her sister ships.</span></li>
+          <li><b>The Magic Carpet</b><span>A tennis-court-sized glass platform cantilevered off the side of the ship that moves up and down the decks. Some days it's a bar. Some nights it's a restaurant suspended over the sea. We're having a drink on it, obviously.</span></li>
+          <li><b>The Bazaar</b><span>Brand new to Xcel — a three-deck marketplace of food, music and festivals that changes to match wherever we woke up that morning.</span></li>
+          <li><b>Infinite Verandas</b><span>Press a button and the wall of the room slides away. The bedroom becomes a balcony over the Mediterranean.</span></li>
+          <li><b>Le Voyage by Daniel Boulud</b><span>A fifty-seat restaurant from one of the most decorated chefs alive — I'm booking us a table for one of the nights.</span></li>
+          <li><b>The Solarium &amp; spa</b><span>Adults-only glass-domed pool, hot tubs and a thermal suite. Our sea day has a plan, and the plan is nothing.</span></li>
+          <li><b>Sunset Bar &amp; Rooftop Garden</b><span>Two storeys of Moroccan-styled bar at the back of the ship, pointed at the wake and the sunset. That's where we'll be most evenings.</span></li>
         </ul>
       </div>
-      <p>She sails from Barcelona at 5:00pm on Saturday 29 August. Which raises the obvious question of where she goes.</p>
+      <p>She sails from Barcelona at 5:00pm. Which leaves one question — where is she taking us?</p>
     </div>
   </article>
 
   <article class="stop locked" data-stop>
     <div class="stub">
       <div class="daynum">29 Aug – 5 Sep</div>
-      <div class="stub-mid"><div class="k">The board</div><div class="s">Seven nights. Five ports. Tap every line.</div></div>
+      <div class="stub-mid">
+        <div class="k">Where we wake up</div>
+        <div class="s">Seven mornings. Tap every line.</div>
+      </div>
       <div class="tap">Tap to open →</div>
     </div>
     <div class="body">
-      <p>Nothing on this board is showing yet. Tap a line to flip it.</p>
+      <p>Every morning of that week, we open the curtains somewhere new. Flip each line to see where.</p>
       <div class="board">
         <div class="board-head"><span>Date</span><span>Destination</span><span>Detail</span></div>
         <div class="flap" data-port="Barcelona, Spain" data-time="Sail 17:00"><span class="d">Sat 29 Aug</span><span class="p hidden">• • • • • •</span><span class="t hidden">— — —</span></div>
@@ -270,35 +277,42 @@
         <div class="flap" data-port="Florence &amp; Pisa · La Spezia" data-time="Tuscany"><span class="d">Tue 1 Sep</span><span class="p hidden">• • • • • •</span><span class="t hidden">— — —</span></div>
         <div class="flap" data-port="Rome · Civitavecchia" data-time="Lazio"><span class="d">Wed 2 Sep</span><span class="p hidden">• • • • • •</span><span class="t hidden">— — —</span></div>
         <div class="flap" data-port="Naples, Italy" data-time="Campania"><span class="d">Thu 3 Sep</span><span class="p hidden">• • • • • •</span><span class="t hidden">— — —</span></div>
-        <div class="flap" data-port="A day at sea" data-time="Nowhere at all"><span class="d">Fri 4 Sep</span><span class="p hidden">• • • • • •</span><span class="t hidden">— — —</span></div>
+        <div class="flap" data-port="A day at sea, just us" data-time="Nowhere at all"><span class="d">Fri 4 Sep</span><span class="p hidden">• • • • • •</span><span class="t hidden">— — —</span></div>
         <div class="flap" data-port="Barcelona, Spain" data-time="Arrive 05:00"><span class="d">Sat 5 Sep</span><span class="p hidden">• • • • • •</span><span class="t hidden">— — —</span></div>
       </div>
       <div class="board-note" id="boardNote">0 of 8 flipped</div>
+      <div class="note">
+        <p>The French Riviera, Portofino's harbour, Tuscany, Rome, Naples — and one whole day at sea with nothing to do but be together. I planned that day most carefully of all.</p>
+      </div>
     </div>
   </article>
 
   <article class="stop locked" data-stop>
     <div class="stub">
       <div class="daynum">Days 09–10 · 5–6 Sep</div>
-      <div class="stub-mid"><div class="k">One last city, then home</div><div class="s">Barcelona, and the flight back</div></div>
+      <div class="stub-mid">
+        <div class="k">One last city, then home</div>
+        <div class="s">Barcelona is ours for a day</div>
+      </div>
       <div class="tap">Tap to open →</div>
     </div>
     <div class="body">
-      <p>You step off the ship at 5am on the Saturday with a whole city in front of you — a night in a Barcelona hotel and a day to spend however you like. Gaudí, vermouth, the Gothic Quarter, or absolutely nothing at all.</p>
+      <p>We step off the ship early Saturday morning with a whole city in front of us and nowhere we have to be — a night in a Barcelona hotel and a day to spend exactly how you want. Gaudí, tapas, the Gothic Quarter, or a long lunch that turns into dinner. Your birthday trip, your call.</p>
       <div class="pass">
         <div><div class="code">BCN</div><div class="city">Barcelona</div><div class="time">Departs 13:35</div></div>
         <div class="mid">✈</div>
         <div class="r"><div class="code">BOH</div><div class="city">Bournemouth</div><div class="time">Lands 14:30 · Sun 6 Sep</div></div>
       </div>
-      <p class="muted">A taxi takes you to the airport. That's genuinely the last thing you'll have to think about.</p>
+      <p class="muted">Then home on the Sunday afternoon, hopefully a little sunburnt and thoroughly spoiled.</p>
     </div>
   </article>
 
   <section id="finale">
-    <div class="eyebrow">All stops opened</div>
-    <h3>Ten days. And it's <em>all booked.</em></h3>
-    <p>Bournemouth to Girona, a car to Barcelona, seven nights on the newest ship at sea, five ports, one day where the only plan is the sunset — and a city on the way home.</p>
-    <div class="sig">Happy birthday. — J x</div>
+    <div class="eyebrow">That's everything</div>
+    <h3>Ten days, and every one <em>of them yours.</em></h3>
+    <p>A year ago this month I met you, and it's been the best year I've had. This is my way of saying so: Girona, the Mediterranean, five countries' worth of coastline, and the newest ship on the sea — with the person I most want to see it all with.</p>
+    <p>Happy birthday, Caitlin. I can't wait.</p>
+    <div class="sig">All my love, Joshua x</div>
   </section>
 
 </main>
@@ -316,7 +330,7 @@
     var d=target-Date.now();
     if(d<=0){cd.textContent='It is happening right now.';return;}
     var days=Math.floor(d/864e5),hrs=Math.floor(d%864e5/36e5),min=Math.floor(d%36e5/6e4);
-    cd.innerHTML='<b>'+days+'</b> days <b>'+hrs+'</b> hrs <b>'+min+'</b> mins — until something you don\'t know about yet';
+    cd.innerHTML='<b>'+days+'</b> days <b>'+hrs+'</b> hrs <b>'+min+'</b> mins — until we leave';
   }
   tick();setInterval(tick,30000);
 
@@ -356,7 +370,7 @@
       p.innerHTML=f.dataset.port;p.classList.remove('hidden');
       t.textContent=f.dataset.time;t.classList.remove('hidden');
       f.classList.add('done');flipped++;
-      note.textContent=(flipped===flaps.length)?'Board complete — that is the whole voyage.':flipped+' of '+flaps.length+' flipped';
+      note.textContent=(flipped===flaps.length)?'Board complete — that is our whole voyage.':flipped+' of '+flaps.length+' flipped';
     }
     f.addEventListener('click',function(e){e.stopPropagation();flip();});
     f.addEventListener('keydown',function(e){
